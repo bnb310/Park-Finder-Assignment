@@ -23,11 +23,11 @@ function displayResults(responseJson) {
   $('#results').removeClass('hidden');
 };
 
-function findParks(chosenState, maxResults=10) {
+function findParks(chosenState, limit) {
   const params = {
     api_key: apiKey,
     stateCode: chosenState,
-    maxResults,
+    limit,
   };
   const queryString = formatQueryParams(params)
   const url = searchURL + '?' + queryString;
@@ -51,7 +51,7 @@ function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     let chosenState = $('select#state').val();
-    const maxResults = $('#js-max-results').val();
+    const limit = $('#js-max-results').val();
     findParks(chosenState, maxResults);
   });
 }
