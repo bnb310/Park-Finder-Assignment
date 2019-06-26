@@ -52,7 +52,7 @@ function watchForm() {
     event.preventDefault();
     let chosenState = $('select#state').val();
     const limit = $('#js-max-results').val();
-    findParks(chosenState, maxResults);
+    findParks(chosenState, limit);
   });
 }
 
